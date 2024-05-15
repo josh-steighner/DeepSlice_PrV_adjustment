@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<series xmlns:first="1" xmlns:last="1" xmlns:name="DeepSlice_PrV_adjustment/Sample_Images/DeepSlice_PrV_Sample_10x_CH2_adjusted" xmlns:aligner="prerelease_1.0.0" xmlns="">
+  <slice anchoring="ox=410.33722710520954&amp;oy=228.69969887427885&amp;oz=335.8566270245492&amp;ux=-457.04473057900384&amp;uy=0.0&amp;uz=-46.375320487707704&amp;vx=26.221910270611186&amp;vy=0.0&amp;vz=-326.07666829089345" filename="E1572_10x_stitch_CH2-downsized.png" height="205.0" width="300.0" nr="1"/>
+</series>
