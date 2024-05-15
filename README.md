@@ -10,6 +10,7 @@ This GitHub contains a jupyter notebook and the files I used for an example walk
 * DeepSlice_PrV_Walkthrough.ipynb: JupyterNotebook containing
   * all of the python functions (custom and adapted from [DeepSlice](https://github.com/PolarBean/DeepSlice)) used to adjust DeepSlice alignments to the vole atlas
   * a walkthrough of this process, starting from DeepSlice alignment to adjustments in QuickNII
+* DeepSlice_PrV_Functions.py: file containing only the functions used in the above notebook
 * PrV_Reference/
   * DeepSlice_PrV_Reference.csv: a combined csv file of DeepSlice's alignment of the vole reference brain ([Gustison et al., 2024](https://doi.org/10.7554/eLife.87029.3)) to the Allen Brain Atlas
   * PrV_DeepSlice_vole.xml: an xml version of the above csv (this is redundant to the csv but thought I'd include it anyway)
