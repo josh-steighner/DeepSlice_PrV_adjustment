@@ -229,12 +229,16 @@ def substitute_PrVRef_values(sample_df, o_list,u_list,v_list):
     
     input_df = sample_df.copy()
     output_df = pd.DataFrame().reindex_like(input_df.filter(['Filenames', 'ox','oy', 'oz', 'ux', 'uy', 'uz', 'vx', 'vy', 'vz', 'width', 'height','vole_depths'], axis=1))
-
+    
+    nr_list = []
     for i in range(len(output_df)): # Copy filenames, width, and height from the raw output
         output_df.loc[i,"Filenames"] = input_df.loc[i,"Filenames"]
         output_df.loc[i,"width"] = input_df.loc[i,"width"]
         output_df.loc[i,"height"] = input_df.loc[i,"height"]
         output_df.loc[i,"vole_depths"] = input_df.loc[i,"vole_depths"]
+        
+        fname = input_df.loc[i,"Filenames"]
+        if '_s' in fname: nr_list.append(int(fname[fname.find('_s')+2:].split('_')[0]))
 
         o_adj = o_list[i]
         u_adj = u_list[i]
@@ -251,6 +255,13 @@ def substitute_PrVRef_values(sample_df, o_list,u_list,v_list):
         output_df.loc[i,"vx"] = v_adj[0]
         output_df.loc[i,"vy"] = 0
         output_df.loc[i,"vz"] = v_adj[2]
+        
+    if 'nr' not in output_df.columns:
+        if len(nr_list)==len(output_df): output_df.insert(len(output_df.columns),'nr',nr_list,allow_duplicates = False)
+    
+    if 'nr' in output_df.columns: output_df = output_df.sort_values(by=['nr'],ignore_index=True)
+    else:
+        if 'vole_depths' in output_df.columns: output_df = output_df.sort_values(by=['vole_depths'],ascending=False,ignore_index=True)
     
     return output_df
 
